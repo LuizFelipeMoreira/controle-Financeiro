@@ -1,0 +1,191 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap");
+@import "colors";
+@import "mixins";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: #e0e6d3;
+
+  font-family: "Poppins", sans-serif;
+}
+
+main {
+  background: #040d12;
+  box-shadow: inset 0 -90px 0 #e0e6d3;
+
+  .content {
+    padding-top: 20px;
+    @include container;
+
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px;
+      margin-bottom: 30px;
+
+      .Logo {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+
+        h1 {
+          color: $white;
+          font-size: 2.125rem;
+          font-weight: 600;
+          padding-top: 25px;
+        }
+
+        img {
+          height: 56px;
+          width: 56px;
+        }
+      }
+
+      button {
+        @include button;
+      }
+    }
+
+    .cards {
+      display: flex;
+      flex-grow: 1;
+      flex-shrink: 1;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 60px;
+      margin-bottom: 20px;
+      padding-left: 20px;
+      margin-top: 30px;
+
+      .Entry {
+        @include card();
+        background-color: $green;
+        .values {
+          i {
+            background-color: $green;
+            background-image: url("../../img/seta.png");
+            transform: rotate(90deg);
+            background-repeat: no-repeat;
+            background-position: center;
+            height: 50px;
+            width: 50px;
+            border-radius: 50%;
+            text-align: center;
+            margin-left: 90px;
+          }
+        }
+      }
+
+      .Output {
+        @include card();
+        background-color: $red;
+
+        .values {
+          i {
+            background-color: $red;
+            background-image: url("../../img/seta.png");
+            transform: rotate(270deg);
+            background-repeat: no-repeat;
+            background-position: center;
+            height: 50px;
+            width: 50px;
+            border-radius: 50%;
+            text-align: center;
+            margin-left: 90px;
+          }
+        }
+      }
+
+      .Total {
+        @include card();
+        background-color: $cian;
+
+        .values {
+          i {
+            background-color: $cian;
+            background-image: url("../../img/carteira.png");
+            background-repeat: no-repeat;
+            background-position: center;
+            height: 50px;
+            width: 50px;
+            border-radius: 50%;
+            text-align: center;
+            margin-left: 90px;
+          }
+        }
+      }
+    }
+    a {
+      display: block;
+      text-decoration: none;
+      color: $black;
+      margin-bottom: 30px;
+    }
+  }
+}
+
+.transactionsSection {
+  @include container;
+  display: flex;
+  justify-content: space-between;
+}
+
+h1 {
+  margin-bottom: 12px;
+  color: $black;
+}
+
+.table-Container {
+  width: 520px;
+  max-height: 350px;
+  overflow-y: auto;
+
+  table,
+  th,
+  td {
+    // border: 1px solid $black;
+    border-collapse: collapse;
+    padding: 10px;
+    margin-bottom: 10px;
+    text-align: center;
+  }
+
+  table {
+    width: 100%;
+
+    thead {
+      border-radius: 5px;
+
+      th {
+        background: #040d12;
+        color: $white;
+        margin-right: 5px;
+      }
+    }
+
+    tbody {
+      border-radius: 5px;
+
+      tr {
+        border-bottom: 4px solid #e0e6d3;
+        border-top: 4px solid #e0e6d3;
+        td {
+          background: $white;
+        }
+      }
+    }
+  }
+}
+
+canvas {
+  width: 600px;
+  height: 300px;
+  background: $white;
+  border-radius: 8px;
+}

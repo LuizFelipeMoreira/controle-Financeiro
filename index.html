@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Finances</title>
+     <link rel="stylesheet" href="./styles/CSS/style.css">
+     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+</head>
+
+<body>
+     <main>
+          <div class="content">
+               <div class="header">
+                    <div class="Logo">
+                         <img src="./img/lucro.png" alt="">
+                         <h1>Finances</h1>
+                    </div>
+
+                    <button class="newFinance">Adicionar Transação</button>
+               </div>
+
+               <div class="cards">
+                    <div class="card Entry">
+                         <h1>Entrada</h1>
+                         <div class="values">
+                              <p class="Sifrao">R$ </p>
+                              <p class="EntryValue">1500</p>
+
+                              <i></i>
+                         </div>
+
+                    </div>
+
+                    <div class="card Output">
+
+                         <h1>Saída</h1>
+                         <div class="values">
+                              <p class="Sifrao">R$</p>
+                              <p class="outputValue"> 1500</p>
+
+                              <i></i>
+                         </div>
+
+                    </div>
+
+                    <div class="card Total">
+                         <h1>Total</h1>
+                         <div class="values">
+                              <p class="Sifrao">R$</p>
+                              <p class="TotalValue"> 1500</p>
+
+                              <i></i>
+                         </div>
+                    </div>
+               </div>
+               <a href="#">Seu desempenho ➝</a>
+          </div>
+     </main>
+
+     <section class="transactionsSection">
+          <div class="table-Container">
+               <h1>Suas Transações</h1>
+               <table>
+                    <thead>
+                         <tr>
+                              <th>Título</th>
+                              <th>Tipo</th>
+                              <th>Valor</th>
+                              <th>Data</th>
+                         </tr>
+                    </thead>
+                    <tbody>
+                         <tr style="margin-bottom: 10px;">
+                              <td>Cartao</td>
+                              <td>Saida</td>
+                              <td>R$ 1890</td>
+                              <td>18/09/2023</td>
+                         </tr>
+                         <tr>
+                              <td>Cartao</td>
+                              <td>Saida</td>
+                              <td>R$ 1890</td>
+                              <td>18/09/2023</td>
+                         </tr>
+                         <tr>
+                              <td>Cartao</td>
+                              <td>Saida</td>
+                              <td>R$ 1890</td>
+                              <td>18/09/2023</td>
+                         </tr>
+                         <tr>
+                              <td>Cartao</td>
+                              <td>Saida</td>
+                              <td>R$ 1890</td>
+                              <td>18/09/2023</td>
+                         </tr>
+                         <tr>
+                              <td>Cartao</td>
+                              <td>Saida</td>
+                              <td>R$ 1890</td>
+                              <td>18/09/2023</td>
+                         </tr>
+                         <tr>
+                              <td>Cartao</td>
+                              <td>Saida</td>
+                              <td>R$ 1890</td>
+                              <td>18/09/2023</td>
+                         </tr>
+                         <tr>
+                              <td>Cartao</td>
+                              <td>Saida</td>
+                              <td>R$ 1890</td>
+                              <td>18/09/2023</td>
+                         </tr>
+                    </tbody>
+               </table>
+          </div>
+
+          <div class="graphic">
+               <h1>Dashboard</h1>
+               <canvas id="myChart"></canvas>
+          </div>
+
+     </section>
+
+     <script src="./Js/script.js"></script>
+</body>
+
+</html>

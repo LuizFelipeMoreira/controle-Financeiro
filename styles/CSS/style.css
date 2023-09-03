@@ -1,0 +1,242 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: #e0e6d3;
+  font-family: "Poppins", sans-serif;
+}
+
+main {
+  background: #040d12;
+  box-shadow: inset 0 -90px 0 #e0e6d3;
+}
+main .content {
+  padding-top: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+main .content .header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  margin-bottom: 30px;
+}
+main .content .header .Logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+main .content .header .Logo h1 {
+  color: #fff;
+  font-size: 2.125rem;
+  font-weight: 600;
+  padding-top: 25px;
+}
+main .content .header .Logo img {
+  height: 56px;
+  width: 56px;
+}
+main .content .header button {
+  border: none;
+  border-radius: 5px;
+  background: #f3cb4b;
+  color: #222;
+  padding: 15px 12px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+  box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.3);
+}
+main .content .header button:hover {
+  background: #ffb400;
+}
+main .content .cards {
+  display: flex;
+  flex-grow: 1;
+  flex-shrink: 1;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 60px;
+  margin-bottom: 20px;
+  padding-left: 20px;
+  margin-top: 30px;
+}
+main .content .cards .Entry {
+  background: #fff;
+  padding: 20px 20px;
+  border-radius: 10px;
+  background-color: #40c260;
+}
+main .content .cards .Entry h1 {
+  font-size: 1.125rem;
+  font-weight: 500;
+  color: #fff;
+  display: flex;
+  align-items: center;
+}
+main .content .cards .Entry h1::after {
+  content: ">";
+  margin-left: 10px;
+}
+main .content .cards .Entry .values {
+  display: flex;
+  gap: 5px;
+  font-size: 2rem;
+  font-weight: 600;
+  color: #fff;
+  align-items: center;
+}
+main .content .cards .Entry .values i {
+  background-color: #40c260;
+  background-image: url("../../img/seta.png");
+  transform: rotate(90deg);
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  text-align: center;
+  margin-left: 90px;
+}
+main .content .cards .Output {
+  background: #fff;
+  padding: 20px 20px;
+  border-radius: 10px;
+  background-color: #ee3e3e;
+}
+main .content .cards .Output h1 {
+  font-size: 1.125rem;
+  font-weight: 500;
+  color: #fff;
+  display: flex;
+  align-items: center;
+}
+main .content .cards .Output h1::after {
+  content: ">";
+  margin-left: 10px;
+}
+main .content .cards .Output .values {
+  display: flex;
+  gap: 5px;
+  font-size: 2rem;
+  font-weight: 600;
+  color: #fff;
+  align-items: center;
+}
+main .content .cards .Output .values i {
+  background-color: #ee3e3e;
+  background-image: url("../../img/seta.png");
+  transform: rotate(270deg);
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  text-align: center;
+  margin-left: 90px;
+}
+main .content .cards .Total {
+  background: #fff;
+  padding: 20px 20px;
+  border-radius: 10px;
+  background-color: #016a70;
+}
+main .content .cards .Total h1 {
+  font-size: 1.125rem;
+  font-weight: 500;
+  color: #fff;
+  display: flex;
+  align-items: center;
+}
+main .content .cards .Total h1::after {
+  content: ">";
+  margin-left: 10px;
+}
+main .content .cards .Total .values {
+  display: flex;
+  gap: 5px;
+  font-size: 2rem;
+  font-weight: 600;
+  color: #fff;
+  align-items: center;
+}
+main .content .cards .Total .values i {
+  background-color: #016a70;
+  background-image: url("../../img/carteira.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  text-align: center;
+  margin-left: 90px;
+}
+main .content a {
+  display: block;
+  text-decoration: none;
+  color: #222;
+  margin-bottom: 30px;
+}
+
+.transactionsSection {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+}
+
+h1 {
+  margin-bottom: 12px;
+  color: #222;
+}
+
+.table-Container {
+  width: 520px;
+  max-height: 350px;
+  overflow-y: auto;
+}
+.table-Container table,
+.table-Container th,
+.table-Container td {
+  border-collapse: collapse;
+  padding: 10px;
+  margin-bottom: 10px;
+  text-align: center;
+}
+.table-Container table {
+  width: 100%;
+}
+.table-Container table thead {
+  border-radius: 5px;
+}
+.table-Container table thead th {
+  background: #040d12;
+  color: #fff;
+  margin-right: 5px;
+}
+.table-Container table tbody {
+  border-radius: 5px;
+}
+.table-Container table tbody tr {
+  border-bottom: 4px solid #e0e6d3;
+  border-top: 4px solid #e0e6d3;
+}
+.table-Container table tbody tr td {
+  background: #fff;
+}
+
+canvas {
+  width: 600px;
+  height: 300px;
+  background: #fff;
+  border-radius: 8px;
+}
+
+/*# sourceMappingURL=style.css.map */
