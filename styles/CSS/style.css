@@ -27,22 +27,31 @@ main .content .header {
   padding: 10px;
   margin-bottom: 30px;
 }
-main .content .header .Logo {
+main .content .Logo {
   display: flex;
   align-items: center;
   gap: 10px;
 }
-main .content .header .Logo h1 {
+@media (max-width: 600px) {
+  main .content .Logo {
+    max-width: 30%;
+  }
+  main .content .Logo h1 {
+    padding-top: 5px;
+    font-size: 1.125rem;
+  }
+}
+main .content .Logo h1 {
   color: #fff;
   font-size: 2.125rem;
   font-weight: 600;
   padding-top: 25px;
 }
-main .content .header .Logo img {
+main .content .Logo img {
   height: 56px;
   width: 56px;
 }
-main .content .header button {
+main .content button {
   border: none;
   border-radius: 5px;
   background: #f3cb4b;
@@ -54,10 +63,18 @@ main .content .header button {
   transition: 0.3s;
   box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.3);
 }
-main .content .header button:hover {
+main .content button:hover {
   background: #ffb400;
 }
-main .content .cards {
+@media (max-width: 600px) {
+  main .content button {
+    text-align: center;
+    max-width: 20%;
+    font-size: 0.75rem;
+    padding: 10px 12px;
+  }
+}
+main .cards {
   display: flex;
   flex-grow: 1;
   flex-shrink: 1;
@@ -68,24 +85,32 @@ main .content .cards {
   padding-left: 20px;
   margin-top: 30px;
 }
-main .content .cards .Entry {
+main .cards .Entry {
   background: #fff;
   padding: 20px 20px;
   border-radius: 10px;
   background-color: #40c260;
 }
-main .content .cards .Entry h1 {
+@media (max-width: 600px) {
+  main .cards .Entry {
+    padding: 15px 10px;
+  }
+  main .cards .Entry h1 {
+    font-size: 1rem;
+  }
+}
+main .cards .Entry h1 {
   font-size: 1.125rem;
   font-weight: 500;
   color: #fff;
   display: flex;
   align-items: center;
 }
-main .content .cards .Entry h1::after {
+main .cards .Entry h1::after {
   content: ">";
   margin-left: 10px;
 }
-main .content .cards .Entry .values {
+main .cards .Entry .values {
   display: flex;
   justify-content: space-between;
   gap: 5px;
@@ -94,7 +119,7 @@ main .content .cards .Entry .values {
   color: #fff;
   align-items: center;
 }
-main .content .cards .Entry .values i {
+main .cards .Entry .values i {
   background-color: #40c260;
   background-image: url("../../img/seta.png");
   transform: rotate(90deg);
@@ -106,24 +131,32 @@ main .content .cards .Entry .values i {
   text-align: center;
   margin-left: 90px;
 }
-main .content .cards .Output {
+main .cards .Output {
   background: #fff;
   padding: 20px 20px;
   border-radius: 10px;
   background-color: #ee3e3e;
 }
-main .content .cards .Output h1 {
+@media (max-width: 600px) {
+  main .cards .Output {
+    padding: 15px 10px;
+  }
+  main .cards .Output h1 {
+    font-size: 1rem;
+  }
+}
+main .cards .Output h1 {
   font-size: 1.125rem;
   font-weight: 500;
   color: #fff;
   display: flex;
   align-items: center;
 }
-main .content .cards .Output h1::after {
+main .cards .Output h1::after {
   content: ">";
   margin-left: 10px;
 }
-main .content .cards .Output .values {
+main .cards .Output .values {
   display: flex;
   justify-content: space-between;
   gap: 5px;
@@ -132,7 +165,7 @@ main .content .cards .Output .values {
   color: #fff;
   align-items: center;
 }
-main .content .cards .Output .values i {
+main .cards .Output .values i {
   background-color: #ee3e3e;
   background-image: url("../../img/seta.png");
   transform: rotate(270deg);
@@ -144,25 +177,33 @@ main .content .cards .Output .values i {
   text-align: center;
   margin-left: 90px;
 }
-main .content .cards .Total {
+main .cards .Total {
   background: #fff;
   padding: 20px 20px;
   border-radius: 10px;
   background-color: #016a70;
   align-items: center;
 }
-main .content .cards .Total h1 {
+@media (max-width: 600px) {
+  main .cards .Total {
+    padding: 15px 10px;
+  }
+  main .cards .Total h1 {
+    font-size: 1rem;
+  }
+}
+main .cards .Total h1 {
   font-size: 1.125rem;
   font-weight: 500;
   color: #fff;
   display: flex;
   align-items: center;
 }
-main .content .cards .Total h1::after {
+main .cards .Total h1::after {
   content: ">";
   margin-left: 10px;
 }
-main .content .cards .Total .values {
+main .cards .Total .values {
   display: flex;
   justify-content: space-between;
   gap: 5px;
@@ -171,7 +212,7 @@ main .content .cards .Total .values {
   color: #fff;
   align-items: center;
 }
-main .content .cards .Total .values i {
+main .cards .Total .values i {
   background-color: #016a70;
   background-image: url("../../img/carteira.png");
   background-repeat: no-repeat;
@@ -182,11 +223,16 @@ main .content .cards .Total .values i {
   text-align: center;
   margin-left: 90px;
 }
-main .content a {
+main a {
   display: block;
   text-decoration: none;
   color: #222;
   margin-bottom: 30px;
+}
+@media (max-width: 600px) {
+  main a {
+    display: none;
+  }
 }
 
 .transactionsSection {
@@ -195,6 +241,21 @@ main .content a {
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
+}
+@media (max-width: 600px) {
+  .transactionsSection {
+    margin-top: 30px;
+    justify-content: center;
+  }
+  .transactionsSection h1 {
+    line-height: 1.2;
+  }
+  .transactionsSection .table-Container {
+    width: 95%;
+  }
+  .transactionsSection .graphic {
+    width: 100%;
+  }
 }
 
 .searchTransactions {
@@ -210,7 +271,7 @@ main .content a {
 .searchTransactions input {
   padding: 6px;
   background: #ffffff;
-  border: 1px solid #222;
+  border: 1px solid #fff;
   border-radius: 5px;
   outline: none;
 }
@@ -281,6 +342,15 @@ main .content a {
   padding: 30px;
   position: relative;
   border-radius: 8px;
+}
+@media (max-width: 600px) {
+  .containerModal.active .modal-Content {
+    padding: 20px;
+    width: 85%;
+  }
+  .containerModal.active .modal-Content h1 {
+    font-size: 1.75rem;
+  }
 }
 .containerModal.active .modal-Content h1 {
   color: #222;
@@ -370,6 +440,14 @@ main .content a {
 }
 .containerModal.active .modal-Content form button:hover {
   background: #ffb400;
+}
+@media (max-width: 600px) {
+  .containerModal.active .modal-Content form button {
+    text-align: center;
+    max-width: 20%;
+    font-size: 0.75rem;
+    padding: 10px 12px;
+  }
 }
 .containerModal.active .modal-Content form button:hover {
   background: #30302d;
