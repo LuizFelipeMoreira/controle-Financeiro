@@ -129,6 +129,30 @@
 
      </section>
 
+     <div class="containerModal">
+          <div class="modal-Content">
+               <button class="closeModal">X</button>
+               <h1>Adicionar Nova Transação</h1>
+               <form action="" name="formModal" id="formModal">
+                    <label for="text">Titulo</label>
+                    <input type="text" name="titulo" id="titulo" required placeholder="Nome da transação">
+
+                    <label for="type">Tipo</label>
+                    <select name="type" id="type" required>
+                         <option value="Entrada">Entrada</option>
+                         <option value="Saida">Saida</option>
+                    </select>
+
+                    <label for="number">Valor</label>
+                    <input type="number" name="valor" id="valor" required placeholder="R$ 0.00">
+
+                    <label for="data">Data</label>
+                    <input type="date" name="data" id="data" required>
+                    <button type="submit">Salvar</button>
+               </form>
+          </div>
+     </div>
+
      <script src="./Js/script.js"></script>
 </body>
 

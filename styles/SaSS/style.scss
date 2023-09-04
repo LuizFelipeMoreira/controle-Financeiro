@@ -147,7 +147,7 @@ main {
   }
   input {
     padding: 6px;
-    background: #f5f5f5;
+    background: #ffffff;
     border: 1px solid $black;
     border-radius: 5px;
     outline: none;
@@ -201,5 +201,120 @@ main {
   canvas {
     background: $white;
     border-radius: 8px;
+  }
+}
+
+.containerModal {
+  display: none;
+}
+.containerModal.active {
+  display: flex;
+  width: 100%;
+  min-height: 100vh;
+  top: 0;
+  left: 0;
+  z-index: 2000;
+  background: rgba(0, 0, 0, 0.3);
+  position: fixed;
+  justify-content: center;
+  align-items: center;
+
+  .modal-Content {
+    width: 500px;
+    background: #f0eeee;
+    padding: 30px;
+    position: relative;
+    border-radius: 8px;
+
+    h1 {
+      color: $black;
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .closeModal {
+      position: absolute;
+      right: -10px;
+      top: -10px;
+      height: 40px;
+      width: 40px;
+      border: none;
+      border-radius: 50%;
+      background: $black;
+      color: white;
+      cursor: pointer;
+      box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.3);
+
+      &:hover {
+        background: #30302d;
+      }
+    }
+
+    form {
+      label {
+        color: $black;
+        display: block;
+        font-weight: 600;
+        margin-bottom: 5px;
+      }
+      input,
+      select {
+        background: $white;
+        padding: 10px;
+        border-radius: 5px;
+        margin-bottom: 10px;
+        outline: none;
+        border: none;
+      }
+
+      option {
+        font-family: "Poppins", sans-serif;
+        font-weight: 500;
+        padding: 5px;
+      }
+
+      #valor,
+      #data,
+      #type,
+      #titulo {
+        font-family: "Poppins", sans-serif;
+        font-weight: 500;
+        &::placeholder {
+          color: $black;
+        }
+      }
+
+      #type {
+        width: 25%;
+      }
+
+      #titulo {
+        width: 90%;
+      }
+
+      #valor {
+        width: 55%;
+      }
+
+      #data {
+        width: 35%;
+        margin-bottom: 20px;
+      }
+
+      button {
+        width: 40%;
+        display: block;
+        @include button;
+        background: $black;
+        color: $white;
+        margin: 0 auto;
+        padding: 10px 20px;
+        box-shadow: none;
+
+        &:hover {
+          background: #30302d;
+        }
+      }
+    }
   }
 }
