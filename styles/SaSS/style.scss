@@ -144,6 +144,18 @@ main {
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
+
+  @include tabletAndDesktop {
+    justify-content: center;
+
+    .table-Container {
+      width: 95%;
+    }
+    .graphic {
+      width: 90%;
+    }
+  }
+
   @include mobile {
     margin-top: 30px;
     justify-content: center;

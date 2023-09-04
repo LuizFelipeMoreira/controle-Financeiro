@@ -242,6 +242,17 @@ main a {
   justify-content: space-between;
   flex-wrap: wrap;
 }
+@media (max-width: 1170px) {
+  .transactionsSection {
+    justify-content: center;
+  }
+  .transactionsSection .table-Container {
+    width: 95%;
+  }
+  .transactionsSection .graphic {
+    width: 90%;
+  }
+}
 @media (max-width: 600px) {
   .transactionsSection {
     margin-top: 30px;
