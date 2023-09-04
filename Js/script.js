@@ -49,3 +49,28 @@ const grafico = new Chart(ctx, {
   },
 });
 grafico.update();
+
+const formModal = document.getElementById("formModal");
+
+function log({ titulo, tipo, valor, data }) {
+  console.log(tipo, valor, titulo, data);
+}
+
+let objData = {};
+
+formModal.addEventListener("submit", (event) => {
+  event.preventDefault();
+
+  const titulo = formModal.titulo.value;
+  const tipo = formModal.type.value;
+  const valor = formModal.valor.value;
+  const data = formModal.data.value;
+
+  objData = {
+    titulo,
+    tipo,
+    valor,
+    data,
+  };
+  log(objData);
+});

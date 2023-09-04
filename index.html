@@ -6,7 +6,6 @@
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
      <title>Finances</title>
      <link rel="stylesheet" href="./styles/CSS/style.css">
-     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 </head>
 
@@ -75,50 +74,7 @@
                               <th>Data</th>
                          </tr>
                     </thead>
-                    <tbody>
-                         <tr>
-                              <td>Cartao</td>
-                              <td>Saida</td>
-                              <td>R$ 1890</td>
-                              <td>18/09/2023</td>
-                         </tr>
-                         <tr>
-                              <td>Cartao</td>
-                              <td>Saida</td>
-                              <td>R$ 1890</td>
-                              <td>18/09/2023</td>
-                         </tr>
-                         <tr>
-                              <td>Cartao</td>
-                              <td>Saida</td>
-                              <td>R$ 1890</td>
-                              <td>18/09/2023</td>
-                         </tr>
-                         <tr>
-                              <td>Cartao</td>
-                              <td>Saida</td>
-                              <td>R$ 1890</td>
-                              <td>18/09/2023</td>
-                         </tr>
-                         <tr>
-                              <td>Cartao</td>
-                              <td>Saida</td>
-                              <td>R$ 1890</td>
-                              <td>18/09/2023</td>
-                         </tr>
-                         <tr>
-                              <td>Cartao</td>
-                              <td>Saida</td>
-                              <td>R$ 1890</td>
-                              <td>18/09/2023</td>
-                         </tr>
-                         <tr>
-                              <td>Cartao</td>
-                              <td>Saida</td>
-                              <td>R$ 1890</td>
-                              <td>18/09/2023</td>
-                         </tr>
-                    </tbody>
+                    <tbody></tbody>
                </table>
           </div>
 
@@ -133,8 +89,8 @@
           <div class="modal-Content">
                <button class="closeModal">X</button>
                <h1>Adicionar Nova Transação</h1>
-               <form action="" name="formModal" id="formModal">
-                    <label for="text">Titulo</label>
+               <form name="formModal" id="formModal">
+                    <label for="titulo">Titulo</label>
                     <input type="text" name="titulo" id="titulo" required placeholder="Nome da transação">
 
                     <label for="type">Tipo</label>
@@ -143,16 +99,17 @@
                          <option value="Saida">Saida</option>
                     </select>
 
-                    <label for="number">Valor</label>
+                    <label for="valor">Valor</label>
                     <input type="number" name="valor" id="valor" required placeholder="R$ 0.00">
 
                     <label for="data">Data</label>
                     <input type="date" name="data" id="data" required>
-                    <button type="submit">Salvar</button>
+                    <button id="buttonSubmit" for="formModal">Salvar</button>
                </form>
           </div>
      </div>
 
+     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
      <script src="./Js/script.js"></script>
 </body>
 
