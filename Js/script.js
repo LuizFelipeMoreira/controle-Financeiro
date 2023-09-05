@@ -52,9 +52,24 @@ grafico.update();
 
 const formModal = document.getElementById("formModal");
 
-function log({ titulo, tipo, valor, data }) {
-  console.log(tipo, valor, titulo, data);
-}
+const tbody = document.querySelector("tbody");
+
+const addTDHtml = ({ titulo, tipo, valor, data }) => {
+  const BRL = +valor.toLocaleString("pt-BR", {
+    style: "currency",
+    currency: "BRL",
+  });
+
+  tbody.insertAdjacentHTML(
+    "beforeend",
+    `<tr>
+    <td>${titulo}</td>
+    <td>${tipo}</td>
+    <td>${BRL}</td>
+    <td>${data}</td>
+    </tr>`
+  );
+};
 
 let objData = {};
 
@@ -72,5 +87,6 @@ formModal.addEventListener("submit", (event) => {
     valor,
     data,
   };
-  log(objData);
+  addTDHtml(objData);
+  closeModal();
 });
