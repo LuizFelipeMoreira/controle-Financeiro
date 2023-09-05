@@ -54,39 +54,76 @@ const formModal = document.getElementById("formModal");
 
 const tbody = document.querySelector("tbody");
 
+const updateLocalStorage = () => {
+  const tdList = tbody.childNodes;
+
+  const listLocalStorage = [...tdList].map((tr) => {
+    const tittle = tr.querySelector(".tittleTD").innerText;
+    const type = tr.querySelector(".typeTD").innerText;
+    const value = tr.querySelector(".valueTD").innerText;
+    const data = tr.querySelector(".dataTD").innerText;
+
+    return { tittle, type, value, data };
+  });
+  localStorage.setItem("FinancesList", JSON.stringify(listLocalStorage));
+};
+
+const refreshTaskLocalStorageHTML = () => {
+  const arrayFinances = JSON.parse(localStorage.getItem("FinancesList"));
+
+  if (!arrayFinances) return;
+  console.log(arrayFinances);
+
+  for (const finance of arrayFinances) {
+    tbody.insertAdjacentHTML(
+      "beforeend",
+      `<tr>
+      <td class="tittleTD">${finance.tittle}</td>
+      <td class="typeTD">${finance.type}</td>
+      <td class="valueTD">${finance.value}</td>
+      <td class="dataTD">${finance.data}</td>
+      <td><i class="fa fa-trash-alt"></i></td>
+      </tr>`
+    );
+  }
+};
+
 const addTDHtml = ({ titulo, tipo, valor, data }) => {
-  const BRL = +valor.toLocaleString("pt-BR", {
+  const currency = new Intl.NumberFormat("pt-BR", {
     style: "currency",
     currency: "BRL",
+    minimumFractionDigits: 2,
   });
 
   tbody.insertAdjacentHTML(
     "beforeend",
     `<tr>
-    <td>${titulo}</td>
-    <td>${tipo}</td>
-    <td>${BRL}</td>
-    <td>${data}</td>
+    <td class="tittleTD">${titulo}</td>
+    <td class="typeTD">${tipo}</td>
+    <td class="valueTD">${currency.format(valor)}</td>
+    <td class="dataTD">${data}</td>
+    <td><i class="fa fa-trash-alt"></i></td>
     </tr>`
   );
+  updateLocalStorage();
 };
 
+refreshTaskLocalStorageHTML();
 let objData = {};
 
 formModal.addEventListener("submit", (event) => {
   event.preventDefault();
 
-  const titulo = formModal.titulo.value;
-  const tipo = formModal.type.value;
-  const valor = formModal.valor.value;
-  const data = formModal.data.value;
-
   objData = {
-    titulo,
-    tipo,
-    valor,
-    data,
+    titulo: formModal.titulo.value,
+    tipo: formModal.type.value,
+    valor: formModal.valor.value,
+    data: formModal.data.value,
   };
   addTDHtml(objData);
   closeModal();
 });
+
+// const carEntry = document.querySelector(".Entry");
+// const carOutput = document.querySelector(".Output");
+// const cardTotal = document.querySelector(".Total");

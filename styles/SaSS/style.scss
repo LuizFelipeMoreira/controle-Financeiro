@@ -165,7 +165,10 @@ main {
     }
 
     .table-Container {
-      width: 95%;
+      width: 98%;
+      table {
+        font-size: 0.75rem;
+      }
     }
     .graphic {
       width: 100%;
@@ -225,6 +228,20 @@ main {
         border-top: 4px solid $gray;
         td {
           background: $white;
+          &:last-child {
+            background: $gray;
+            padding: 5px;
+            opacity: 0;
+            transition: opacity 0.6s;
+            cursor: pointer;
+          }
+        }
+        &:hover {
+          td {
+            &:last-child {
+              opacity: 1;
+            }
+          }
         }
       }
     }
