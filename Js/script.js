@@ -128,6 +128,18 @@ formModal.addEventListener("submit", (event) => {
   closeModal();
 });
 
+const deleteIcon = document.querySelectorAll(".fa");
+
+const deleteItem = (event) => {
+  const element = event.currentTarget.parentElement;
+  console.log(deleteIcon);
+  console.log(element);
+};
+
+deleteIcon.forEach((item) => {
+  item.addEventListener("click", deleteItem);
+});
+
 // const carEntry = document.querySelector(".Entry");
 // const carOutput = document.querySelector(".Output");
 // const cardTotal = document.querySelector(".Total");
