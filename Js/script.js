@@ -62,8 +62,8 @@ const updateLocalStorage = () => {
     const type = tr.querySelector(".typeTD").innerText;
     const value = tr.querySelector(".valueTD").innerText;
     const data = tr.querySelector(".dataTD").innerText;
-
-    return { tittle, type, value, data };
+    const id = tr.getAttribute("id");
+    return { id, tittle, type, value, data };
   });
   localStorage.setItem("FinancesList", JSON.stringify(listLocalStorage));
 };
@@ -72,12 +72,11 @@ const refreshTaskLocalStorageHTML = () => {
   const arrayFinances = JSON.parse(localStorage.getItem("FinancesList"));
 
   if (!arrayFinances) return;
-  console.log(arrayFinances);
 
   for (const finance of arrayFinances) {
     tbody.insertAdjacentHTML(
       "beforeend",
-      `<tr>
+      `<tr id="${finance.id}">
       <td class="tittleTD">${finance.tittle}</td>
       <td class="typeTD">${finance.type}</td>
       <td class="valueTD">${finance.value}</td>
@@ -97,7 +96,7 @@ const addTDHtml = ({ titulo, tipo, valor, data }) => {
 
   tbody.insertAdjacentHTML(
     "beforeend",
-    `<tr>
+    `<tr id="${tbody.childNodes.length}">
     <td class="tittleTD">${titulo}</td>
     <td class="typeTD">${tipo}</td>
     <td class="valueTD">${currency.format(valor)}</td>
@@ -109,6 +108,7 @@ const addTDHtml = ({ titulo, tipo, valor, data }) => {
 };
 
 refreshTaskLocalStorageHTML();
+
 let objData = {};
 
 formModal.addEventListener("submit", (event) => {
