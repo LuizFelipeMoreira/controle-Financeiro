@@ -54,6 +54,7 @@ const formModal = document.getElementById("formModal");
 
 const tbody = document.querySelector("tbody");
 
+// faz um loop pelos item da tabela e salva as informacooes na tabela
 const updateLocalStorage = () => {
   const tdList = tbody.childNodes;
 
@@ -68,6 +69,7 @@ const updateLocalStorage = () => {
   localStorage.setItem("FinancesList", JSON.stringify(listLocalStorage));
 };
 
+// pega os dados do local storage e poe no html
 const refreshTaskLocalStorageHTML = () => {
   const arrayFinances = JSON.parse(localStorage.getItem("FinancesList"));
 
@@ -87,6 +89,7 @@ const refreshTaskLocalStorageHTML = () => {
   }
 };
 
+// recebi os dados do formulario pela funcao formModal
 const addTDHtml = ({ titulo, tipo, valor, data }) => {
   const currency = new Intl.NumberFormat("pt-BR", {
     style: "currency",
@@ -111,6 +114,7 @@ refreshTaskLocalStorageHTML();
 
 let objData = {};
 
+// pega os dados do formulario
 formModal.addEventListener("submit", (event) => {
   event.preventDefault();
 
