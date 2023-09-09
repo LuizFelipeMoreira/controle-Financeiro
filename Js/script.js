@@ -14,24 +14,41 @@ buttonCloseModal.addEventListener("click", closeModal);
 buttonNewFinance.addEventListener("click", closeModal);
 containerModal.addEventListener("click", outsideClick);
 
-const ctx = document.getElementById("myChart");
+const formModal = document.getElementById("formModal");
+const tbody = document.querySelector("tbody");
 
+const cardEntrada = document.querySelector(".EntryValue");
+const cardSaida = document.querySelector(".OutputValue");
+const cardTotal = document.querySelector(".TotalValue");
+
+let entrada = 0;
+let saida = 0;
+let total = 0;
+
+const transacoes = [];
+const valores = [];
+const backgrounds = [];
+const colors = [
+  "rgba(148, 0, 255, 0.4)",
+  "rgba(84, 180, 53,.4)",
+  "rgba(238, 62, 62,.7)",
+  "rgba(112, 145, 245,.4)",
+  "rgba(246, 250, 112,.4)",
+  "rgba(255, 155, 80,.4)",
+];
+
+const ctx = document.getElementById("myChart");
 const grafico = new Chart(ctx, {
   type: "bar",
   data: {
-    labels: ["Red", "Blue", "Yellow", "hdd"],
+    labels: transacoes,
     datasets: [
       {
-        label: "# transacao",
-        data: [12, 19, 3, 5, 2, 3],
+        label: "Suas Transações",
+        data: valores,
         borderWidth: 1,
         color: "#000",
-        backgroundColor: [
-          "rgba(1, 106, 112,.6)",
-          "rgba(238, 62, 62,.7)",
-          "rgba(84, 180, 53,.6)",
-          "rgba(84, 18, 53,.6)",
-        ],
+        backgroundColor: backgrounds,
       },
     ],
   },
@@ -48,45 +65,21 @@ const grafico = new Chart(ctx, {
     },
   },
 });
-grafico.update();
 
-const formModal = document.getElementById("formModal");
-
-const tbody = document.querySelector("tbody");
-
-// faz um loop pelos item da tabela e salva as informacooes na tabela
-const updateLocalStorage = () => {
-  const tdList = tbody.childNodes;
-
-  const listLocalStorage = [...tdList].map((tr) => {
-    const tittle = tr.querySelector(".tittleTD").innerText;
-    const type = tr.querySelector(".typeTD").innerText;
-    const value = tr.querySelector(".valueTD").innerText;
-    const data = tr.querySelector(".dataTD").innerText;
-    const id = tr.getAttribute("id");
-    return { id, tittle, type, value, data };
-  });
-  localStorage.setItem("FinancesList", JSON.stringify(listLocalStorage));
+const updateCard = (tipo, valor) => {
+  if (tipo === "Entrada") {
+    entrada = valor;
+    cardEntrada.innerText = valor;
+  }
 };
 
-// pega os dados do local storage e poe no html
-const refreshTaskLocalStorageHTML = () => {
-  const arrayFinances = JSON.parse(localStorage.getItem("FinancesList"));
+const updateGrafico = (nome, tipo, valor) => {
+  transacoes.push(nome);
+  valores.push(valor);
 
-  if (!arrayFinances) return;
+  backgrounds.push(colors[Math.floor(Math.random() * 5)]);
 
-  for (const finance of arrayFinances) {
-    tbody.insertAdjacentHTML(
-      "beforeend",
-      `<tr id="${finance.id}">
-      <td class="tittleTD">${finance.tittle}</td>
-      <td class="typeTD">${finance.type}</td>
-      <td class="valueTD">${finance.value}</td>
-      <td class="dataTD">${finance.data}</td>
-      <td><i class="far fa-trash-alt"></i></td>
-      </tr>`
-    );
-  }
+  grafico.update();
 };
 
 // recebi os dados do formulario pela funcao formModal
@@ -107,10 +100,9 @@ const addTDHtml = ({ titulo, tipo, valor, data }) => {
     <td><i class="far fa-trash-alt"></i></td>
     </tr>`
   );
-  updateLocalStorage();
+  updateCard(tipo, valor);
+  updateGrafico(titulo, tipo, valor);
 };
-
-let objData = {};
 
 // pega os dados do formulario
 formModal.addEventListener("submit", (event) => {
@@ -122,8 +114,38 @@ formModal.addEventListener("submit", (event) => {
     valor: formModal.valor.value,
     data: formModal.data.value,
   };
+
+  formModal.titulo.value = "";
+  formModal.valor.value = "";
+  formModal.data.value = "";
+
   addTDHtml(objData);
   closeModal();
 });
 
-refreshTaskLocalStorageHTML();
+// procurar transacao
+const input = document.getElementById("inputTransaction");
+const listTD = tbody.childNodes;
+
+const procurarTransacao = () => {
+  if (input.value !== "") {
+    for (const tr of listTD) {
+      let tittle = tr.querySelector(".tittleTD");
+
+      tittle = tittle.innerText.toLowerCase();
+      let textInput = input.value.toLowerCase();
+
+      if (!tittle.includes(textInput)) {
+        tr.style.opacity = "0.4";
+      } else {
+        tr.style.opacity = "1";
+      }
+    }
+  } else {
+    for (const tr of listTD) {
+      tr.style.opacity = "1";
+    }
+  }
+};
+
+input.addEventListener("input", procurarTransacao);
