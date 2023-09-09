@@ -117,6 +117,7 @@ formModal.addEventListener("submit", (event) => {
 
   formModal.titulo.value = "";
   formModal.valor.value = "";
+  formModal.type.value = "";
   formModal.data.value = "";
 
   addTDHtml(objData);
