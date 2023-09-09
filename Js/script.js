@@ -83,7 +83,7 @@ const refreshTaskLocalStorageHTML = () => {
       <td class="typeTD">${finance.type}</td>
       <td class="valueTD">${finance.value}</td>
       <td class="dataTD">${finance.data}</td>
-      <td><i class="fa fa-trash-alt"></i></td>
+      <td><i class="far fa-trash-alt"></i></td>
       </tr>`
     );
   }
@@ -104,13 +104,11 @@ const addTDHtml = ({ titulo, tipo, valor, data }) => {
     <td class="typeTD">${tipo}</td>
     <td class="valueTD">${currency.format(valor)}</td>
     <td class="dataTD">${data}</td>
-    <td><i class="fa fa-trash-alt"></i></td>
+    <td><i class="far fa-trash-alt"></i></td>
     </tr>`
   );
   updateLocalStorage();
 };
-
-refreshTaskLocalStorageHTML();
 
 let objData = {};
 
@@ -128,18 +126,4 @@ formModal.addEventListener("submit", (event) => {
   closeModal();
 });
 
-const deleteIcon = document.querySelectorAll(".fa");
-
-const deleteItem = (event) => {
-  const element = event.currentTarget.parentElement;
-  console.log(deleteIcon);
-  console.log(element);
-};
-
-deleteIcon.forEach((item) => {
-  item.addEventListener("click", deleteItem);
-});
-
-// const carEntry = document.querySelector(".Entry");
-// const carOutput = document.querySelector(".Output");
-// const cardTotal = document.querySelector(".Total");
+refreshTaskLocalStorageHTML();
