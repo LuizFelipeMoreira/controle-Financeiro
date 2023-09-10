@@ -18,7 +18,7 @@ const formModal = document.getElementById("formModal");
 const tbody = document.querySelector("tbody");
 
 const cardEntrada = document.querySelector(".EntryValue");
-const cardSaida = document.querySelector(".OutputValue");
+const cardSaida = document.querySelector(".outputValue");
 const cardTotal = document.querySelector(".TotalValue");
 
 let entrada = 0;
@@ -35,6 +35,8 @@ const colors = [
   "rgba(112, 145, 245,.4)",
   "rgba(246, 250, 112,.4)",
   "rgba(255, 155, 80,.4)",
+  "rgba(255, 161, 245,.4)",
+  "rgba(17, 0, 158,.4)",
 ];
 
 const ctx = document.getElementById("myChart");
@@ -68,16 +70,23 @@ const grafico = new Chart(ctx, {
 
 const updateCard = (tipo, valor) => {
   if (tipo === "Entrada") {
-    entrada = valor;
-    cardEntrada.innerText = valor;
+    entrada += +valor;
+    cardEntrada.innerText = entrada.toFixed(2);
+  } else if (tipo === "Saida") {
+    saida += +valor;
+    cardSaida.innerText = saida.toFixed(2);
   }
+  total = entrada - saida;
+  cardTotal.innerText = total.toFixed(2);
 };
 
 const updateGrafico = (nome, tipo, valor) => {
   transacoes.push(nome);
   valores.push(valor);
 
-  backgrounds.push(colors[Math.floor(Math.random() * 5)]);
+  const randomNumber = Math.floor(Math.random() * 7);
+  console.log(randomNumber);
+  backgrounds.push(colors[randomNumber]);
 
   grafico.update();
 };
