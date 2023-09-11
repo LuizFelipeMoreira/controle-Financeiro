@@ -91,6 +91,19 @@ const updateGrafico = (nome, tipo, valor) => {
   grafico.update();
 };
 
+const updateLocalStorage = () => {
+  const listFinances = tbody.childNodes;
+  const FinanceLocalStorage = [...listFinances].map((tr) => {
+    return {
+      titulo: tr.querySelector(".tittleTD").innerText,
+      tipo: tr.querySelector(".typeTD").innerText,
+      valor: tr.querySelector(".valueTD").innerText,
+      data: tr.querySelector(".dataTD").innerText,
+    };
+  });
+  localStorage.setItem("Finances", JSON.stringify(FinanceLocalStorage));
+};
+
 // recebi os dados do formulario pela funcao formModal
 const addTDHtml = ({ titulo, tipo, valor, data }) => {
   const currency = new Intl.NumberFormat("pt-BR", {
@@ -99,9 +112,11 @@ const addTDHtml = ({ titulo, tipo, valor, data }) => {
     minimumFractionDigits: 2,
   });
 
+  const id = tbody.childNodes.length;
+
   tbody.insertAdjacentHTML(
     "beforeend",
-    `<tr id="${tbody.childNodes.length}">
+    `<tr id="${id}">
     <td class="tittleTD">${titulo}</td>
     <td class="typeTD">${tipo}</td>
     <td class="valueTD">${currency.format(valor)}</td>
@@ -109,9 +124,28 @@ const addTDHtml = ({ titulo, tipo, valor, data }) => {
     <td><i class="far fa-trash-alt"></i></td>
     </tr>`
   );
+  updateLocalStorage();
   updateCard(tipo, valor);
   updateGrafico(titulo, tipo, valor);
 };
+
+const getFinancesLocalStorage = () => {
+  const FinancesLocalStorage = JSON.parse(localStorage.getItem("Finances"));
+  for (const finance of FinancesLocalStorage) {
+    tbody.insertAdjacentHTML(
+      "beforeend",
+      `<tr>
+      <td class="tittleTD">${finance.titulo}</td>
+      <td class="typeTD">${finance.tipo}</td>
+      <td class="valueTD">${finance.valor}</td>
+      <td class="dataTD">${finance.data}</td>
+      <td><i class="far fa-trash-alt"></i></td>
+      </tr>`
+    );
+  }
+};
+
+getFinancesLocalStorage();
 
 // pega os dados do formulario
 formModal.addEventListener("submit", (event) => {
