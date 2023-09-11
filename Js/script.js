@@ -85,7 +85,7 @@ const updateGrafico = (nome, tipo, valor) => {
   valores.push(valor);
 
   const randomNumber = Math.floor(Math.random() * 7);
-  console.log(randomNumber);
+
   backgrounds.push(colors[randomNumber]);
 
   grafico.update();
@@ -131,7 +131,10 @@ const addTDHtml = ({ titulo, tipo, valor, data }) => {
 
 const getFinancesLocalStorage = () => {
   const FinancesLocalStorage = JSON.parse(localStorage.getItem("Finances"));
+
   for (const finance of FinancesLocalStorage) {
+    let numberClear = parseInt(finance.valor.slice(3).replace(".", ""));
+
     tbody.insertAdjacentHTML(
       "beforeend",
       `<tr>
@@ -142,6 +145,8 @@ const getFinancesLocalStorage = () => {
       <td><i class="far fa-trash-alt"></i></td>
       </tr>`
     );
+    updateCard(finance.tipo, numberClear);
+    updateGrafico(finance.titulo, finance.tipo, numberClear);
   }
 };
 
