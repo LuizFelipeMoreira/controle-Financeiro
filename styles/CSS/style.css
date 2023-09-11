@@ -323,6 +323,9 @@ main a {
 .table-Container table tbody {
   border-radius: 5px;
 }
+.table-Container table tbody .tittleTD {
+  text-transform: capitalize;
+}
 .table-Container table tbody tr {
   border-bottom: 4px solid #e0e6d3;
   border-top: 4px solid #e0e6d3;

@@ -225,6 +225,10 @@ main {
     tbody {
       border-radius: 5px;
 
+      .tittleTD {
+        text-transform: capitalize;
+      }
+
       tr {
         border-bottom: 4px solid $gray;
         border-top: 4px solid $gray;
