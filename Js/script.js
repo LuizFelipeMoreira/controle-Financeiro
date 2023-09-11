@@ -145,8 +145,6 @@ const getFinancesLocalStorage = () => {
   }
 };
 
-getFinancesLocalStorage();
-
 // pega os dados do formulario
 formModal.addEventListener("submit", (event) => {
   event.preventDefault();
@@ -193,3 +191,5 @@ const procurarTransacao = () => {
 };
 
 input.addEventListener("input", procurarTransacao);
+
+getFinancesLocalStorage();
