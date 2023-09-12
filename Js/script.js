@@ -132,12 +132,16 @@ const addTDHtml = ({ titulo, tipo, valor, data }) => {
 const getFinancesLocalStorage = () => {
   const FinancesLocalStorage = JSON.parse(localStorage.getItem("Finances"));
 
+  if (!FinancesLocalStorage.length) return;
+
   for (const finance of FinancesLocalStorage) {
     let numberClear = parseInt(finance.valor.slice(3).replace(".", ""));
 
+    const id = tbody.childNodes.length;
+
     tbody.insertAdjacentHTML(
       "beforeend",
-      `<tr>
+      `<tr id="${id}">
       <td class="tittleTD">${finance.titulo}</td>
       <td class="typeTD">${finance.tipo}</td>
       <td class="valueTD">${finance.valor}</td>
@@ -148,6 +152,7 @@ const getFinancesLocalStorage = () => {
     updateCard(finance.tipo, numberClear);
     updateGrafico(finance.titulo, finance.tipo, numberClear);
   }
+  addEventDelete();
 };
 
 // pega os dados do formulario
@@ -198,3 +203,41 @@ const procurarTransacao = () => {
 input.addEventListener("input", procurarTransacao);
 
 getFinancesLocalStorage();
+addEventDelete;
+function addEventDelete() {
+  const deleteButtons = document.querySelectorAll(".far");
+  deleteButtons.forEach((item) =>
+    item.addEventListener("click", deleteFinance)
+  );
+}
+
+function deleteFinance({ currentTarget }) {
+  const ParentElement = currentTarget.parentElement.parentElement;
+  const indexToRemove = +ParentElement.getAttribute("id");
+
+  const FinanceLocalStorage = JSON.parse(localStorage.getItem("Finances"));
+
+  FinanceLocalStorage.splice(indexToRemove, 1);
+  transacoes.splice(indexToRemove, 1);
+  valores.splice(indexToRemove, 1);
+  grafico.update();
+
+  const tipo = ParentElement.querySelector(".typeTD").innerText;
+  let valor = ParentElement.querySelector(".valueTD").innerText;
+  valor = parseInt(valor.slice(3).replace(".", ""));
+
+  if (tipo === "Entrada") {
+    entrada -= valor;
+    cardEntrada.innerText = entrada.toFixed(2);
+  } else if (tipo === "Saida") {
+    saida -= valor;
+    cardSaida.innerText = saida.toFixed(2);
+  }
+  total = entrada - saida;
+  cardTotal.innerText = total.toFixed(2);
+
+  ParentElement.remove();
+  localStorage.setItem("Finances", JSON.stringify(FinanceLocalStorage));
+
+  console.log(FinanceLocalStorage);
+}
