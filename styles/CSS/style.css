@@ -334,9 +334,6 @@ main a {
 .table-Container table tbody tr td {
   background: #fff;
 }
-.table-Container table tbody tr td .far {
-  min-height: 30px;
-}
 .table-Container table tbody tr td:last-child {
   background: #e0e6d3;
   padding: 5px;
