@@ -220,7 +220,6 @@ function deleteFinance({ currentTarget }) {
   FinanceLocalStorage.splice(indexToRemove, 1);
   transacoes.splice(indexToRemove, 1);
   valores.splice(indexToRemove, 1);
-  grafico.update();
 
   const tipo = ParentElement.querySelector(".typeTD").innerText;
   let valor = ParentElement.querySelector(".valueTD").innerText;
@@ -237,6 +236,7 @@ function deleteFinance({ currentTarget }) {
   cardTotal.innerText = total.toFixed(2);
 
   ParentElement.remove();
+  grafico.update();
   localStorage.setItem("Finances", JSON.stringify(FinanceLocalStorage));
 
   console.log(FinanceLocalStorage);
