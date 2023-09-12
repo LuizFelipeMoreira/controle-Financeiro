@@ -127,6 +127,7 @@ const addTDHtml = ({ titulo, tipo, valor, data }) => {
   updateLocalStorage();
   updateCard(tipo, valor);
   updateGrafico(titulo, tipo, valor);
+  addEventDelete();
 };
 
 const getFinancesLocalStorage = () => {
@@ -203,7 +204,7 @@ const procurarTransacao = () => {
 input.addEventListener("input", procurarTransacao);
 
 getFinancesLocalStorage();
-addEventDelete;
+
 function addEventDelete() {
   const deleteButtons = document.querySelectorAll(".far");
   deleteButtons.forEach((item) =>
