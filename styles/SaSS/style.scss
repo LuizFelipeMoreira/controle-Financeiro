@@ -167,13 +167,14 @@ main {
     }
 
     .table-Container {
-      width: 98%;
+      width: 95%;
       table {
         font-size: 0.75rem;
       }
     }
     .graphic {
-      width: 100%;
+      width: 95%;
+      margin-bottom: 30px;
     }
   }
 }
@@ -348,10 +349,13 @@ main {
         &::placeholder {
           color: $black;
         }
+        @include mobile {
+          font-size: 65%;
+        }
       }
 
       #type {
-        width: 25%;
+        width: 35%;
       }
 
       #titulo {
@@ -363,7 +367,7 @@ main {
       }
 
       #data {
-        width: 35%;
+        width: 45%;
         margin-bottom: 20px;
       }
 
