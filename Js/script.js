@@ -160,7 +160,7 @@ const getFinancesLocalStorage = () => {
 formModal.addEventListener("submit", (event) => {
   event.preventDefault();
 
-  objData = {
+  let objData = {
     titulo: formModal.titulo.value,
     tipo: formModal.type.value,
     valor: formModal.valor.value,
