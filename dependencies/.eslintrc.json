@@ -9,7 +9,7 @@
     "sourceType": "module"
   },
   "rules": {
-    "no-undef": 0,
+    //"no-undef": 0,
     "import/extensions": 0,
     "no-restricted-syntax": 0,
     "no-plusplus": 0
